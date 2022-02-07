@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<TimeSheetManagement.Entity.Models.Employee>
+
+<table class="table table-bordered table-hover table-dark">
+    <thead>
+        <tr>
+            <th>EmpID</th>
+            <th>EmpName</th>
+            <th>EmpDesignation</th>
+            <th>EmpEmailID</th>
+            <th>EmpPhone</th>
+            <th>EmpUserName</th>
+            <th>EmpPsw</th>
+            <th>EmpDOJ</th>
+            <th>MgrID</th>
+            <th>CurrentProjectID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.EmpID</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpDesig</td>
+            <td>@item.EmpEmailID</td>
+            <td>@item.EmpPhone</td>
+            <td>@item.EmpUserName</td>
+            <td>@item.EmpPsw</td>
+            <td>@item.EmpDOJ</td>
+            <td>@item.MgrID</td>
+            <td>@item.CurrentProjectID</td>
+            <td><a asp-action="UpdateEmployee" asp-route-EmpID="@item.EmpID">Update</a></td>
+            <td><a asp-action="DeleteEmployee" asp-route-EmpID="@item.EmpID">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

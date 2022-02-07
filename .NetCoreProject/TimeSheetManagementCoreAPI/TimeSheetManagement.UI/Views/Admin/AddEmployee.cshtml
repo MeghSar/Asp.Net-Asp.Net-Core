@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model TimeSheetManagement.Entity.Models.Employee
+<hr />
+<a class="btn btn-primary" asp-action="GetEmployees">Show Student Details</a>
+<hr />
+<form method="post" enctype="multipart/form-data">
+    <h2>Employee</h2><hr />
+    <div class="form-group">
+        <label>Employee ID</label>
+        <input type="text" asp-for="EmpID" class="form-control" placeholder="enter employee id" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Name</label>
+        <input type="text" asp-for="EmpName" class="form-control" placeholder="enter employee name" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Designation</label>
+        <input type="text" asp-for="EmpDesig" class="form-control" placeholder="enter employee designation" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Email</label>
+        <input type="text" asp-for="EmpEmailID" class="form-control" placeholder="enter employee email" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Phone</label>
+        <input type="text" asp-for="EmpPhone" class="form-control" placeholder="enter employee phone" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Username</label>
+        <input type="text" asp-for="EmpUserName" class="form-control" placeholder="enter employee phone" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Password</label>
+        <input type="text" asp-for="EmpPsw" class="form-control" placeholder="enter employee phone" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Joining Date</label>
+        <input type="text" asp-for="EmpDOJ" class="form-control" placeholder="enter employee joining date" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Manager</label>
+        <input type="text" asp-for="MgrID" class="form-control" value="0" disabled="disabled" placeholder="enter employee manager id" required />
+    </div>
+    <div class="form-group">
+        <label>Employee Current Project</label>
+        <input type="text" asp-for="CurrentProjectID" class="form-control" value="0" disabled="disabled" placeholder="enter current project" required />
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    @*<input type="button" value="Reset" class="btn btn-outline-secondary" />*@
+    
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+</form>
