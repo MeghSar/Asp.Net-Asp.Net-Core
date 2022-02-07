@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StudentCoreApp.Models;
 using System;
 using System.Collections.Generic;
@@ -36,10 +37,20 @@ namespace StudentCoreApp.Controllers
         }
         public IActionResult EditStudent(int Roll)
         {
+            var result = _studentDbContext.Student.Find(Roll);
+            return View(result);
+        }
+        [HttpPost]
+        public IActionResult EditStudent(Student student)
+        {
+            _studentDbContext.Entry(student).State = EntityState.Modified;
+            _studentDbContext.SaveChanges();
+            ViewBag.message = "Tutorial Details Updated successfully";
             return View();
         }
         public IActionResult DeleteStudent(int Roll)
         {
+            var result = _studentDbContext.Student.Find(Roll);
             return View();
         }
     }

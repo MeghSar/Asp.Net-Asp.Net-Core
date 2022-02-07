@@ -1,6 +1,49 @@
-﻿<h3>
+﻿@model StudentCoreApp.Models.Student
+<h3>
     Edit Tutorial
 </h3>
 <hr />
 <a class="btn btn-primary" asp-action="Index">Show Student Details</a>
 <hr />
+<form method="post">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    Roll
+                </td>
+                <td>
+                    <input type="text" asp-for="Roll" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    
+                    <input type="text" asp-for="Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    <input type="text" asp-for="Email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="text" asp-for="Psw" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Update" />
+
+    </div>
+    @ViewBag.message
+</form>
