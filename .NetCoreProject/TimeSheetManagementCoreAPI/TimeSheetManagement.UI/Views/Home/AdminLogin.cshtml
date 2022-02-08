@@ -3,6 +3,7 @@
 *@
 @{
 }
+@model TimeSheetManagement.Entity.Models.Employee
 <style>
     .heading {
         justify-content: center;
@@ -36,30 +37,38 @@
                      alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form>
+                <form method="post">
 
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <input type="email" id="form3Example3" class="form-control form-control-lg"
-                               placeholder="Enter a valid user name" />
+                               placeholder="Enter a valid user name" asp-for="EmpEmailID" />
                         <label class="form-label" for="form3Example3">Email address</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <input type="password" id="form3Example4" class="form-control form-control-lg"
-                               placeholder="Enter password" />
+                               placeholder="Enter password" asp-for="EmpPsw"/>
                         <label class="form-label" for="form3Example4">Password</label>
                     </div>
 
 
 
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <a asp-area="" asp-controller="Home" asp-action="AdminPostLogin" class="btn btn-primary btn-lg"
-                           style="padding-left: 2.5rem; padding-right: 2.5rem;">
-                            Login
-                        </a>
-                        
+                        <input type="submit" class="btn btn-primary" value="Login">
+                        @if (ViewBag.status == "Ok")
+                        {
+                            <div class="alert alert-success">
+                                @ViewBag.message
+                            </div>
+                        }
+                        else if (ViewBag.status == "Error")
+                        {
+                            <div class="alert alert-danger">
+                                @ViewBag.message
+                            </div>
+                        }
                         <br />
                         <br />
                         <br />
@@ -75,7 +84,6 @@
             Copyright © 2022. All rights reserved.
         </div>
         <!-- Copyright -->
-
         <!-- Right -->
     </div>
 </section>
