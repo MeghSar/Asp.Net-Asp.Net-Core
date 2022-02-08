@@ -27,10 +27,7 @@ namespace TimeSheetManagement.UI.Controllers
         {
             return View();
         }
-        public IActionResult Login()
-        {
-            return View();
-        }
+       
         public IActionResult AdminLogin()
         {
             return View();
